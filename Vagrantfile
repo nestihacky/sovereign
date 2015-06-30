@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
 
     # ansible.tags = ["blog"]
     # ansible.skip_tags = ["openvpn"]
-    # ansible.verbose = "vvvv"
+    ansible.verbose = "v"
   end
 
   config.vm.provider :virtualbox do |v|
