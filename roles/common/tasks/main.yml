@@ -2,6 +2,8 @@
 - name: set hostname
   hostname: name={{ inventory_hostname }}
 
+- include: epel.yml tags=epel
+
 - name: update all packages
   yum: name=* state=latest
 
@@ -10,5 +12,7 @@
   with_items:
   - vim
   - tree
+  tags:
+    - dependencies
 
 - include: ntp.yml tags=ntp
