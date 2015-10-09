@@ -1,0 +1,15 @@
+- name: Copy SSL private key into place
+  copy: src=wildcard_private.key dest=/etc/pki/tls/private/wildcard_private.key group=root owner=root mode=640
+
+- name: Copy SSL public certificate into place
+  copy: src=wildcard_public_cert.crt dest=/etc/pki/tls/certs/wildcard_public_cert.crt group=root owner=root mode=644
+
+- name: Copy CA combined certificate into place
+  copy: src=wildcard_ca.pem dest=/etc/pki/tls/certs/wildcard_ca.pem group=root owner=root mode=644
+
+- name: Create a combined version of the public cert with intermediate and root CAs
+  shell: cat /etc/pki/tls/certs/wildcard_public_cert.crt /etc/pki/tls/certs/wildcard_ca.pem >
+    /etc/pki/tls/certs/wildcard_combined.pem creates=/etc/pki/tls/certs/wildcard_combined.pem
+
+- name: Set permissions on combined public cert
+  file: name=/etc/pki/tls/certs/wildcard_combined.pem mode=644

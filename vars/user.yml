@@ -5,8 +5,8 @@
 ###############################################################################
 
 # common
-domain: TODO.com
-main_user_name: TODO
+domain: centos7.vagrant
+main_user_name: b42
 encfs_password: TODO    # NOTE: must not contain dollar sign characters '$'
 
 # database
@@ -50,6 +50,7 @@ mail_virtual_aliases:
     destination: "{{ admin_email }}"
     domain_pk_id: 1
 mail_header_privacy: 1
+#mail_server_hostname:
 
 # z-push
 zpush_timezone: "TODO"  #Example: "America/New_York"

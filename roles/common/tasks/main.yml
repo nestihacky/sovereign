@@ -26,3 +26,5 @@
   selinux: state=disabled
 
 - include: ntp.yml tags=ntp
+
+- include: ssl.yml tags=ssl

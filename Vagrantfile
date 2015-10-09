@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
     ansible.host_key_checking = false
     ansible.extra_vars = { ansible_ssh_user: "vagrant", testing: true }
 
-    # ansible.tags = ["blog"]
+    # ansible.tags = ["dmarc"]
     # ansible.skip_tags = ["openvpn"]
     ansible.verbose = "v"
   end
