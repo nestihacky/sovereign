@@ -12,6 +12,7 @@
   with_items:
   - vim
   - tree
+  - net-tools
   tags:
     - dependencies
 
