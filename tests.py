@@ -238,14 +238,14 @@ class MailTests(unittest.TestCase):
         """IMAP without SSL is NOT available"""
         import imaplib
 
-        with self.assertRaisesRegexp(socket.timeout, 'timed out'):
+        with self.assertRaises(socket.error):
             imaplib.IMAP4(TEST_SERVER, 143)
 
     def test_pop3_requires_ssl(self):
         """POP3 without SSL is NOT available"""
         import poplib
 
-        with self.assertRaisesRegexp(socket.timeout, 'timed out'):
+        with self.assertRaises(socket.error):
             poplib.POP3(TEST_SERVER, 110)
 
     def test_smtps(self):
