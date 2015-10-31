@@ -33,10 +33,15 @@ Vagrant.configure("2") do |config|
   ## More information: https://github.com/fgrehm/vagrant-cachier
   ##
 
-  #if Vagrant.has_plugin? "vagrant-cachier"
-  #  config.cache.enable :apt
-  #  config.cache.scope = :box
-  #end
+  if Vagrant.has_plugin? "vagrant-cachier"
+    config.cache.enable :apt
+    config.cache.scope = :box
+  end
+
+  if Vagrant.has_plugin? "vagrant-hostmanager"
+    config.hostmanager.enabled = true
+    config.hostmanager.manage_host = true
+  end
 
   #
   # Centos 7
