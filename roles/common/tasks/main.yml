@@ -13,7 +13,16 @@
   - vim
   - tree
   - net-tools
+  - bind-utils
+  - firewalld
   tags:
     - dependencies
+
+  #TODO: move this somewhere else
+- name: enable and start firewalld
+  service: name=firewalld state=started enabled=yes
+
+- name: make Dan Walsh weep
+  selinux: state=disabled
 
 - include: ntp.yml tags=ntp
