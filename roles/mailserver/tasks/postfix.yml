@@ -85,7 +85,7 @@
 - name: Allow SMTP in firewalld
   firewalld: port={{ item }}/tcp state=enabled permanent=yes immediate=yes
   with_items:
-    - 25
-    - 465
+    - smtp
+    - smtps
   tags:
     - firewalld
