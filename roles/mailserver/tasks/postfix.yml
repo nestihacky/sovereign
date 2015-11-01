@@ -87,3 +87,5 @@
   with_items:
     - 25
     - 465
+  tags:
+    - firewalld

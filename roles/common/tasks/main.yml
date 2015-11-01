@@ -22,6 +22,8 @@
   #TODO: move this somewhere else
 - name: enable and start firewalld
   service: name=firewalld state=started enabled=yes
+  tags:
+    - firewalld
 
 - name: make Dan Walsh weep
   selinux: state=permissive policy=targeted
