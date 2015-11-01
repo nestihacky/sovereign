@@ -15,6 +15,7 @@
   - net-tools
   - bind-utils
   - firewalld
+  - psmisc
   tags:
     - dependencies
 
@@ -23,7 +24,7 @@
   service: name=firewalld state=started enabled=yes
 
 - name: make Dan Walsh weep
-  selinux: state=disabled
+  selinux: state=permissive policy=targeted
 
 - include: ntp.yml tags=ntp
 
