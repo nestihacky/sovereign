@@ -26,5 +26,8 @@
 - name: reload postgres
   service: name=postgresql state=reloaded
 
+- name: restart mariadb
+  service: name=mariadb state=restarted
+
 - name: restart dspam
   service: name=dspam state=restarted
