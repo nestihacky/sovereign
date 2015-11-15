@@ -17,10 +17,8 @@
   notify: restart postfix
 
 - name: import sql opendmarc
-  shell: psql -h localhost -d {{ mail_db_opendmarc_database }} -U {{ mail_db_opendmarc_username }} -f /etc/opendmarc/import.sql --set ON_ERROR_STOP=1
-  environment:
-    PGPASSWORD: '{{ mail_db_opendmarc_password }}'
-  notify: restart postfix
+  mysql_db: name={{ mail_db_opendmarc_database }} state=import target=/etc/opendmarc/import.sql
+  tags: import_mysql_postfix
 
 - name: restart opendmarc
   service: name=opendmarc state=restarted
